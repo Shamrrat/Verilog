@@ -1,4 +1,4 @@
-//basic and_gate
+//1.basic and_gate 
 module and_gate(input wire a,b,output wire c);
 and(c,a,b);
 endmodule
@@ -20,7 +20,7 @@ end
 endmodule
 
 
-// all basic gates
+//2.all basic gates
 module all_basic_gates(input wire a,b, output wire and_out,or_out,not_out,nand_out,nor_out,xor_out,xnor_out);
 and(and_out,a,b);
 or(or_out,a,b);
@@ -43,6 +43,35 @@ $monitor("time=%t | a=%b | b=%b | and_out=%b | or_out=%b | not_out=%b | nand_out
     #10 a = 0; b = 1;
     #10 a = 1; b = 0;
     #10 a = 1; b = 1;
+    #10
+    $finish;
+end
+endmodule
+
+
+//3. all_basic_gates_with_multiple_bits
+module all_basic_gates_with_multiple_bits(input wire [2:0]a,b, output wire [2:0]and_out,or_out,not_out,nand_out,nor_out,xor_out,xnor_out);
+assign and_out=a&b;
+assign or_out=a|b;
+assign not_out=~a;
+assign nor_out=~(a|b);
+assign nand_out=~ (a&b);
+assign xor_out=a^b;
+assign xnor_out=~(a^b);
+endmodule
+module all_basic_gates_with_multiple_bits_tb;
+reg [2:0]a,b;
+wire  [2:0]and_out,or_out,not_out,nand_out,nor_out,xor_out,xnor_out;
+all_basic_gates_with_multiple_bits dut (.a(a),.b(b),.and_out(and_out),.or_out(or_out),.not_out(not_out),.nand_out(nand_out),.nor_out(nor_out),.xor_out(xor_out),.xnor_out(xnor_out));
+initial
+begin
+$dumpfile("all_basic_gates_with_multiple_bits_tb.vcd");
+$dumpvars(0,all_basic_gates_with_multiple_bits_tb);
+$monitor("time=%t | a=%b | b=%b | and_out=%b | or_out=%b | not_out=%b | nand_out=%b | nor_out=%b | xor_out=%b | xnor_out=%b",$time,a,b,and_out,or_out,not_out,nand_out,nor_out,xor_out,xnor_out);
+    #10 a = 2; b = 0;
+    #10 a = 1; b = 2;
+    #10 a = 1; b = 0;
+    #10 a = 0; b = 2;
     #10
     $finish;
 end
