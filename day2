@@ -51,3 +51,19 @@ begin
 $finish;	
 end
 endmodule
+
+
+//3.condition
+module condition;
+reg a;
+initial
+begin 
+a=1;
+	if(a)
+		$display("condition is true");
+	else
+		$display("condition is false");
+
+end
+endmodule
+
