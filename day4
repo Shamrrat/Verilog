@@ -17,3 +17,13 @@
  $display(" wire=%b wand=%b wor=%b supply1=%b supply0 =%b tri0=%b tri1=%b trireg=%b reg=%b integer=%d time=%t real=%f realtime=%f",a,b,c,d,e,f,g,i,j,k,l,m);
  end
  endmodule
+
+//2.string 
+ module string;
+ reg [2000:0] a;
+ initial
+ begin
+	 a=" string in verilog";
+ $display("a=%s",a);
+end 
+endmodule
