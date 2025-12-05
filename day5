@@ -117,3 +117,17 @@ endmodule
 //OUTPUT
 a=001 b=111 c_in=0 sum=000 c_out=1
 
+
+//6.signed and unsigned
+module signed_unsigned;
+reg signed [3:0]a;
+reg [3:0]b;
+initial
+begin
+a=-3;
+b=-3;
+$display("a=%d  b=%d",a,b);
+end
+endmodule
+//OUTPUT
+a=-3  b=13 // b also -3 but we assume it in unsigned so 13
