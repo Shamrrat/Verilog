@@ -56,3 +56,34 @@ for (i=0;i<9;i=i+1)
 	$display("mem[%0d]= %b",i,mem[i]);
 end
 endmodule
+
+4.parameter using integer
+module parameter_;
+parameter N=4;
+reg [N-1:0]a,b;
+reg [N+1:0]sum;
+initial
+begin
+a=12;
+b=10;
+sum =a+b;
+$display("a=%d b=%d  sum=%d  ",a,b,sum);
+end
+endmodule
+
+
+//5.parameter using binary
+module parameter_;
+parameter N=3;
+reg [N-1:0]a,b,sum;
+reg c_in,c_out;
+initial
+begin
+a=3'b001;
+b=3'b111;
+c_in=0;
+{c_out,sum} =a+b+c_in;
+$display("a=%b b=%b c_in=%b sum=%b c_out=%b  ",a,b,c_in,sum,c_out);
+end
+endmodule
+
