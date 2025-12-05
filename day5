@@ -17,6 +17,8 @@ begin
  $display(" a=%b b=%b c=%b d=%b",a,b,c,d);
  end
 endmodule
+//OUTPUT
+ a=x b=0 c=1 d=0
 
 
 //2. variable data types
@@ -38,7 +40,8 @@ f=d+e;
 $display("a=%b  b=%b c=%b  d=%d  e=%d  f=%d  x=%d y=%d z=%d",a,b,c,d,e,f,x,y,z);
 end
 endmodule
-
+//OUTPUT
+a=0  b=1 c=1  d=8  e=6  f=14  x=-4 y=-3 z=1 // output for z be -7 but output is 1 due to overflow
 
 //3.array and memory
 module arrar_memory;
@@ -56,6 +59,29 @@ for (i=0;i<9;i=i+1)
 	$display("mem[%0d]= %b",i,mem[i]);
 end
 endmodule
+mem.m file contains
+00101010
+00000111
+00000000
+00111111
+00010100
+00101101
+00010111
+00111110
+
+//OUTPUT
+mem= e,    4,  32,  -7
+WARNING: array_memory.v:11: $readmemb(memory.m): Not enough words in the file for the requested range [0:15].
+mem[0]= 00101010
+mem[1]= 00000111
+mem[2]= 00000000
+mem[3]= 00111111
+mem[4]= 00010100
+mem[5]= 00101101
+mem[6]= 00010111
+mem[7]= 00111110
+mem[8]= xxxxxxxx
+
 
 4.parameter using integer
 module parameter_;
@@ -70,6 +96,8 @@ sum =a+b;
 $display("a=%d b=%d  sum=%d  ",a,b,sum);
 end
 endmodule
+//OUTPUT
+a=12 b=10  sum=22
 
 
 //5.parameter using binary
@@ -86,4 +114,6 @@ c_in=0;
 $display("a=%b b=%b c_in=%b sum=%b c_out=%b  ",a,b,c_in,sum,c_out);
 end
 endmodule
+//OUTPUT
+a=001 b=111 c_in=0 sum=000 c_out=1
 
