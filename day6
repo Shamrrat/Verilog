@@ -17,3 +17,26 @@ end
 endmodule
   //OUTPUT
   a=2.000000 b=4.400000 add=6.600000 mul=9.680000 div=2.000000 int=2 a=2.000000
+
+
+//2. time
+module time_example;
+time s,e,diff;
+initial
+begin
+$display(" time=%t",$time);
+#5;
+s=$time;
+$display("start time=%t",s);
+#5;
+e=$time;
+$display("end time=%t",e);
+diff=e-s;
+$display("difference=%t",diff);
+end 
+endmodule
+//OUTPUT
+ time=0
+start time=5
+end time=10
+difference=5
