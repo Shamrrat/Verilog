@@ -1,0 +1,19 @@
+//1.real rumbers
+module real_number;
+real a,b;
+real add,mul,div;
+integer int;
+initial
+begin
+        a=2.2;
+        b=4.4;
+        add=a+b;
+        mul=a*b;
+        div=b/a;
+        int=a;
+        a=int;
+        $display("a=%f b=%f add=%f mul=%f div=%f int=%d a=%f",a,b,add,mul,div,int,a);
+end
+endmodule
+  //OUTPUT
+  a=2.000000 b=4.400000 add=6.600000 mul=9.680000 div=2.000000 int=2 a=2.000000
