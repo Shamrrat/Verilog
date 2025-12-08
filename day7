@@ -89,3 +89,17 @@ end
 endmodule
 //OUTPUT
 a=1010 b=1111 c=10101111
+
+6.memory
+module memory;
+reg [7:0]mem[0:15];
+reg [7:0]temp;
+initial
+begin
+mem[10]=8'h88;
+mem[15]=8'h12;
+$display("bits at mem[10]= %b and mem[15]=%b",mem[10],mem[15]);
+end
+endmodule
+//OUTPUT
+bits at mem[10]= 10001000 and mem[15]=00010010
