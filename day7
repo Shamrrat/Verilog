@@ -55,3 +55,21 @@ x=11011001 clk=0
 x=11011001 clk=1
 x=11011001 clk=0
 x=11011001 clk=1
+
+4. reverse of last 3bits of 8 bit varaiable
+ module reverse_nibble;
+ reg[7:0]a;
+ initial
+ begin
+	 a=8'b11010101;
+$display("a=%b" ,a);
+a[3]=a[0];
+a[2]=a[1];
+a[1]=a[2];
+a[0]=a[3];
+$display("after revering a=%b",a);
+end 
+endmodule
+//OUTPUT
+a=11010101
+after revering a=11011010
