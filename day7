@@ -28,3 +28,30 @@ endmodule
 a=00001111 b=11110001
 lower 4 bit of a=1111
 upper 4 bbit of b=1111
+
+
+3.toggle of 3rd bit of x (part select)
+module toggle;
+reg[7:0]x;
+reg clk ;
+initial
+begin
+$monitor("x=%b clk=%b",x,clk);
+x=8'b11011001;
+clk =x[3];
+repeat (10)
+#5 clk=~clk;
+end
+endmodule
+//OUTPUT
+x=11011001 clk=1
+x=11011001 clk=0
+x=11011001 clk=1
+x=11011001 clk=0
+x=11011001 clk=1
+x=11011001 clk=0
+x=11011001 clk=1
+x=11011001 clk=0
+x=11011001 clk=1
+x=11011001 clk=0
+x=11011001 clk=1
