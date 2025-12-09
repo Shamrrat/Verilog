@@ -101,3 +101,28 @@ mem[2]=10101010
 mem[3]=01101101
 copied content of mem[2] in reg_a=10101010
 
+//4.Initialize all the row value of memory with same content using for loop
+module initialize_memory;
+reg [7:0]mem[0:7];
+reg [7:0]data;
+integer i;
+initial
+begin
+data=8'h33;
+$display("data=%h",data);
+for(i=0;i<8;i=i+1) begin
+	mem[i]=data;
+	$display("memory[%0d]=%h",i,mem[i]);
+end
+end
+endmodule
+//OUTPUT
+data=33
+memory[0]=33
+memory[1]=33
+memory[2]=33
+memory[3]=33
+memory[4]=33
+memory[5]=33
+memory[6]=33
+memory[7]=33
